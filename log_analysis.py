@@ -93,7 +93,7 @@ def display_results(ip_requests, most_accessed_endpoint, suspicious_activity):
     print("\nMost Frequently Accessed Endpoint:")
     if most_accessed_endpoint:
         print(f"{most_accessed_endpoint[0]} (Accessed {most_accessed_endpoint[1]} times)")
-    
+
     # Display Suspicious Activity
     print("\nSuspicious Activity Detected:")
     print("IP Address           Failed Login Attempts")
@@ -102,23 +102,23 @@ def display_results(ip_requests, most_accessed_endpoint, suspicious_activity):
 
 def main():
     # Path to your log file
-    log_file_path = 'access.log'  # Replace with the path to your log file
-    
+    log_file_path = 'sample.log'  # Use 'sample.log' as per your instructions
+
     # Parse the log file
     log_lines = parse_log_file(log_file_path)
-    
+
     # Count requests per IP
     ip_requests = count_requests_per_ip(log_lines)
-    
+
     # Identify most accessed endpoint
     most_accessed_endpoint = identify_most_accessed_endpoint(log_lines)
-    
+
     # Detect suspicious activity (failed login attempts)
     suspicious_activity = detect_suspicious_activity(log_lines)
-    
+
     # Save results to CSV
     save_results_to_csv(ip_requests, most_accessed_endpoint, suspicious_activity)
-    
+
     # Display results in the terminal
     display_results(ip_requests, most_accessed_endpoint, suspicious_activity)
 
